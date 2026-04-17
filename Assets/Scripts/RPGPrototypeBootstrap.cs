@@ -12,10 +12,13 @@ namespace RPGPrototype
     /// </summary>
     public sealed class RPGPrototypeBootstrap : MonoBehaviour
     {
+        private static bool _created;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void CreateBootstrap()
         {
-            if (FindObjectOfType<RPGPrototypeBootstrap>() != null) return;
+            if (_created) return;
+            _created = true;
             var go = new GameObject("RPGPrototypeBootstrap");
             DontDestroyOnLoad(go);
             go.AddComponent<RPGPrototypeBootstrap>();
@@ -80,6 +83,7 @@ namespace RPGPrototype
     public sealed class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
+        public PlayerRuntime Player { get; set; }
         public int EnemiesKilled;
         public int QuestsCompleted;
         public float PlayTime;
@@ -399,7 +403,7 @@ namespace RPGPrototype
 
         private void Update()
         {
-            if (_target == null) _target = FindObjectOfType<PlayerRuntime>();
+            if (_target == null) _target = GameManager.Instance.Player;
             if (_target == null) return;
             var dist = Vector3.Distance(transform.position, _target.transform.position);
             if (dist > 12f) return;
@@ -427,7 +431,7 @@ namespace RPGPrototype
         {
             HP -= amount;
             if (HP > 0f) return;
-            if (FindObjectOfType<PlayerRuntime>() is { } player)
+            if (GameManager.Instance.Player is { } player)
             {
                 player.GainXP(20);
                 player.Gold += 5;
@@ -483,7 +487,7 @@ namespace RPGPrototype
 
         public void AddProgress(QuestType type, int amount)
         {
-            var player = FindObjectOfType<PlayerRuntime>();
+            var player = GameManager.Instance.Player;
             foreach (var q in Quests)
             {
                 if (q.Completed || q.Type != type) continue;
@@ -583,8 +587,9 @@ namespace RPGPrototype
             player.name = "Player";
             player.transform.position = Vector3.up * 2f;
             player.GetComponent<Renderer>().enabled = false;
-            player.AddComponent<PlayerRuntime>();
+            var runtime = player.AddComponent<PlayerRuntime>();
             player.AddComponent<PlayerController>();
+            GameManager.Instance.Player = runtime;
             return player;
         }
 
