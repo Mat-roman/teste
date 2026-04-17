@@ -13,6 +13,18 @@ Este repositório agora contém um **protótipo jogável** de RPG 3D em Unity (r
 - HUD, inventário, quest log, pausa e save/load em 3 slots
 - ciclo dia/noite e clima simples
 
+## Estrutura de scripts (MVP completo)
+
+Além do bootstrap único (`Assets/Scripts/RPGPrototypeBootstrap.cs`), o projeto agora inclui estrutura modular com os sistemas pedidos:
+
+- `Assets/Scripts/Player/` (`PlayerController`, `PlayerStats`, `PlayerCombat`, `PlayerInventory`)
+- `Assets/Scripts/Enemy/` (`EnemyBase`, `GoblinAI`, `OrcAI`, `SkeletonAI`, `DragonAI`, `BossAI`)
+- `Assets/Scripts/Quest/` (`QuestManager`, `Quest`)
+- `Assets/Scripts/Items/` (`Item`, `Equipment`, `Consumable`)
+- `Assets/Scripts/NPC/` (`NPCBase`)
+- `Assets/Scripts/UI/` (`HUDManager`, `InventoryUI`, `CharacterSheetUI`, `QuestLogUI`, `DialogueUI`, `MenuUI`, `ShopUI`)
+- `Assets/Scripts/Manager/` (`SaveManager`, `AudioManager`)
+
 ## Como executar
 
 1. Instale **Unity 2021.3+**.
