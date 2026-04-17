@@ -68,7 +68,6 @@ public class QuestManager : MonoBehaviour
                 CompleteQuest(quest);
             }
 
-            break;
         }
     }
 
@@ -109,7 +108,7 @@ public class QuestManager : MonoBehaviour
 
         AddQuest("dungeon_1", "Explore the Dungeon", QuestType.Explore, 1, 2000, 0);
         AddQuest("dungeon_2", "Defeat 5 Skeletons", QuestType.Kill, 5, 2500, 0);
-        AddQuest("dungeon_3", "Find the Lost Artifact", QuestType.Kill, 1, 5000, 0);
+        AddQuest("dungeon_3", "Find the Lost Artifact", QuestType.Explore, 1, 5000, 0);
 
         AddQuest("castle_1", "Gather Allies", QuestType.Dialogue, 3, 2000, 0);
         AddQuest("castle_2", "Prepare the Army", QuestType.Kill, 20, 3000, 0);

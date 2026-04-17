@@ -36,7 +36,7 @@ public class HUDManager : MonoBehaviour
 
         if (goldText != null)
         {
-            goldText.text = "Gold: 0";
+            goldText.text = $"Gold: {_stats.Gold}";
         }
     }
 

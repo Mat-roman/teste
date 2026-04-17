@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int mana = 80;
     [SerializeField] private int maxStamina = 100;
     [SerializeField] private int stamina = 100;
+    [SerializeField] private int gold;
 
     [Header("Attributes")]
     [SerializeField] private int strength = 5;
@@ -31,12 +32,13 @@ public class PlayerStats : MonoBehaviour
     public int HP => hp;
     public int MaxHP => maxHP + GetEquipmentBonus(e => e.BonusHP);
     public int Mana => mana;
-    public int MaxMana => maxMana + intelligence * 5 + GetEquipmentBonus(e => e.BonusMana);
+    public int MaxMana => maxMana + Intelligence * 5 + GetEquipmentBonus(e => e.BonusMana);
     public int Stamina => stamina;
     public int MaxStamina => maxStamina;
     public int Experience => experience;
     public int ExperienceToNextLevel => experienceToNextLevel;
     public int Level => level;
+    public int Gold => gold;
 
     public int Strength => strength + GetEquipmentBonus(e => e.BonusStrength);
     public int Dexterity => dexterity + GetEquipmentBonus(e => e.BonusDexterity);
@@ -116,6 +118,22 @@ public class PlayerStats : MonoBehaviour
     public void RestoreStamina(int value)
     {
         stamina = Mathf.Clamp(stamina + Mathf.Max(0, value), 0, MaxStamina);
+        Changed?.Invoke();
+    }
+
+    public void SetGold(int value)
+    {
+        gold = Mathf.Max(0, value);
+        Changed?.Invoke();
+    }
+
+    public void SetStateForLoad(int loadedLevel, int loadedExperience, int loadedHp, int loadedMana, int loadedStamina)
+    {
+        level = Mathf.Clamp(loadedLevel, 1, maxLevel);
+        experience = Mathf.Max(0, loadedExperience);
+        hp = Mathf.Clamp(loadedHp, 0, MaxHP);
+        mana = Mathf.Clamp(loadedMana, 0, MaxMana);
+        stamina = Mathf.Clamp(loadedStamina, 0, MaxStamina);
         Changed?.Invoke();
     }
 

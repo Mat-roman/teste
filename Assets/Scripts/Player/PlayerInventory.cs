@@ -31,7 +31,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool AddItem(Item item, int amount = 1)
     {
-        if (item == null || amount <= 0 || _slots.Count >= maxSlots)
+        if (item == null || amount <= 0)
         {
             return false;
         }
@@ -47,6 +47,11 @@ public class PlayerInventory : MonoBehaviour
         {
             existing.Amount += amount;
             return true;
+        }
+
+        if (_slots.Count >= maxSlots)
+        {
+            return false;
         }
 
         _slots.Add(new InventorySlot { Item = item, Amount = amount });

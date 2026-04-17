@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     {
         public int Level;
         public int Experience;
+        public int Gold;
         public int HP;
         public int Mana;
         public int Stamina;
@@ -51,6 +52,7 @@ public class SaveManager : MonoBehaviour
         {
             Level = stats.Level,
             Experience = stats.Experience,
+            Gold = stats.Gold,
             HP = stats.HP,
             Mana = stats.Mana,
             Stamina = stats.Stamina,
@@ -72,6 +74,8 @@ public class SaveManager : MonoBehaviour
         }
 
         var data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString(Key(slot)));
+        stats.SetStateForLoad(data.Level, data.Experience, data.HP, data.Mana, data.Stamina);
+        stats.SetGold(data.Gold);
         stats.transform.position = data.Position;
         return true;
     }
