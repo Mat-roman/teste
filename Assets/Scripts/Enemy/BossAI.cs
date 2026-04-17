@@ -23,7 +23,7 @@ public class BossAI : EnemyBase
 
     private void UpdatePhase()
     {
-        var hpPercent = CurrentHP / (float)Mathf.Max(1, maxHP);
+        var hpPercent = (float)CurrentHP / Mathf.Max(1, maxHP);
         var nextPhase = hpPercent <= 0.33f ? 3 : hpPercent <= 0.66f ? 2 : 1;
         if (nextPhase == _phase)
         {

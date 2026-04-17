@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
     public int HP => hp;
     public int MaxHP => maxHP + GetEquipmentBonus(e => e.BonusHP);
     public int Mana => mana;
-    public int MaxMana => maxMana + Intelligence * 5 + GetEquipmentBonus(e => e.BonusMana);
+    public int MaxMana => maxMana + (intelligence + GetEquipmentBonus(e => e.BonusIntelligence)) * 5 + GetEquipmentBonus(e => e.BonusMana);
     public int Stamina => stamina;
     public int MaxStamina => maxStamina;
     public int Experience => experience;

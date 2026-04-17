@@ -42,7 +42,7 @@ public class PlayerInventory : MonoBehaviour
             return false;
         }
 
-        var existing = _slots.FirstOrDefault(s => s.Item != null && s.Item.Id == item.Id && s.Amount < s.Item.MaxStack);
+        var existing = _slots.FirstOrDefault(s => s.Item != null && s.Item.Id == item.Id && s.Amount < item.MaxStack);
         if (existing != null)
         {
             existing.Amount += amount;
