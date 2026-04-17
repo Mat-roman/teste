@@ -1,19 +1,33 @@
-# RPG 3D Unity
+# RPG 3D Unity Prototype
 
-This repository contains the initial setup for a 3D RPG game developed in Unity.
+Este repositório agora contém um **protótipo jogável** de RPG 3D em Unity (runtime-generated), com:
 
-## Getting Started
+- personagem controlável (WASD, corrida, pulo, câmera 1ª/3ª pessoa)
+- combate melee + magia com cooldown e crítico
+- 5 tipos de inimigos (Goblin, Orc, Skeleton, Dragon, Bandit)
+- 4 áreas exploráveis (Village, Forest, Dungeon, Castle Entrance)
+- sistema de XP/nível/atributos
+- inventário com 24 slots, catálogo de 30 equipamentos + 50 consumíveis
+- 15 quests em cadeia com progresso
+- NPCs (8), baús, portas interativas
+- HUD, inventário, quest log, pausa e save/load em 3 slots
+- ciclo dia/noite e clima simples
 
-This guide will help you set up the project on your local machine for development and testing purposes.
+## Como executar
 
-### Prerequisites
-- Unity Hub
-- Unity 2021.3 or later
+1. Instale **Unity 2021.3+**.
+2. Abra este diretório no Unity Hub.
+3. Crie/abra qualquer cena vazia e pressione **Play**.
+   - O bootstrap (`Assets/Scripts/RPGPrototypeBootstrap.cs`) cria todo o protótipo em runtime.
 
-### Installation
-1. Clone the repository:
-   ```
-   git clone https://github.com/Mat-roman/teste.git
-   ```
-2. Open Unity Hub and add the project folder to your projects.
-3. Open the project and start developing!
+## Controles
+
+- **WASD**: mover
+- **Shift**: correr
+- **Espaço**: pular
+- **Mouse esquerdo**: ataque melee
+- **Mouse direito**: magia
+- **V**: alternar 1ª/3ª pessoa
+- **I**: inventário
+- **J**: quest log
+- **Esc**: pausa / save-load
