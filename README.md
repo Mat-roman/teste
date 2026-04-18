@@ -1,38 +1,38 @@
 # RPG 3D Unity Prototype
 
-Este repositório agora contém um **protótipo jogável** de RPG 3D em Unity (runtime-generated), com:
+Este repositório contém um protótipo de RPG 3D em Unity.
 
-- personagem controlável (WASD, corrida, pulo, câmera 1ª/3ª pessoa)
-- combate melee + magia com cooldown e crítico
-- 5 tipos de inimigos (Goblin, Orc, Skeleton, Dragon, Bandit)
-- 4 áreas exploráveis (Village, Forest, Dungeon, Castle Entrance)
-- sistema de XP/nível/atributos
-- inventário com 24 slots, catálogo de 30 equipamentos + 50 consumíveis
-- 15 quests em cadeia com progresso
-- NPCs (8), baús, portas interativas
-- HUD, inventário, quest log, pausa e save/load em 3 slots
-- ciclo dia/noite e clima simples
+## Abrir no Unity Hub (Unity 6000.3.13f1)
 
-## Estrutura de scripts (MVP completo)
+1. Clone o repositório.
+2. No Unity Hub, instale/selecione a versão **6000.3.13f1**.
+3. Clique em **Add** e selecione a pasta raiz do projeto:
+   - pasta que contém **`Assets/`**, **`Packages/`** e **`ProjectSettings/`**.
+4. Abra o projeto pelo Unity Hub.
 
-Além do bootstrap único (`Assets/Scripts/RPGPrototypeBootstrap.cs`), o projeto agora inclui estrutura modular com os sistemas pedidos:
+### Pasta correta para adicionar no Hub
 
-- `Assets/Scripts/Player/` (`PlayerController`, `PlayerStats`, `PlayerCombat`, `PlayerInventory`)
-- `Assets/Scripts/Enemy/` (`EnemyBase`, `GoblinAI`, `OrcAI`, `SkeletonAI`, `DragonAI`, `BossAI`)
-- `Assets/Scripts/Quest/` (`QuestManager`, `Quest`)
-- `Assets/Scripts/Items/` (`Item`, `Equipment`, `Consumable`)
-- `Assets/Scripts/NPC/` (`NPCBase`)
-- `Assets/Scripts/UI/` (`HUDManager`, `InventoryUI`, `CharacterSheetUI`, `QuestLogUI`, `DialogueUI`, `MenuUI`, `ShopUI`)
-- `Assets/Scripts/Manager/` (`SaveManager`, `AudioManager`)
+Neste repositório, a pasta correta é a **raiz do repositório clonado** (a pasta que contém `Assets/`, `Packages/` e `ProjectSettings/`).
 
-## Como executar
+Não selecione a subpasta `teste/` interna (ela contém apenas um README legado e não é raiz de projeto Unity).
 
-1. Instale **Unity 2021.3+**.
-2. Abra este diretório no Unity Hub.
-3. Crie/abra qualquer cena vazia e pressione **Play**.
-   - O bootstrap (`Assets/Scripts/RPGPrototypeBootstrap.cs`) cria todo o protótipo em runtime.
+## Estrutura mínima de projeto Unity incluída
 
-## Controles
+- `Assets/`
+- `Packages/manifest.json`
+- `Packages/packages-lock.json`
+- `ProjectSettings/ProjectVersion.txt`
+
+## Arquivos gerados automaticamente na primeira abertura
+
+Na primeira abertura, o Unity pode gerar arquivos adicionais em `ProjectSettings/`, como:
+
+- `ProjectSettings/ProjectSettings.asset`
+- `ProjectSettings/TagManager.asset`
+
+Isso é esperado para um projeto mínimo recém-estruturado.
+
+## Controles (protótipo)
 
 - **WASD**: mover
 - **Shift**: correr
