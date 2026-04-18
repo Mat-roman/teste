@@ -12,7 +12,7 @@ Este repositório contém um protótipo de RPG 3D em Unity.
 
 ### Pasta correta para adicionar no Hub
 
-Neste repositório, a pasta correta é a raiz clonada (por exemplo: `.../teste`).
+Neste repositório, a pasta correta é a **raiz do repositório clonado** (a pasta que contém `Assets/`, `Packages/` e `ProjectSettings/`).
 
 Não selecione a subpasta `teste/` interna (ela contém apenas um README legado e não é raiz de projeto Unity).
 
@@ -23,9 +23,9 @@ Não selecione a subpasta `teste/` interna (ela contém apenas um README legado 
 - `Packages/packages-lock.json`
 - `ProjectSettings/ProjectVersion.txt`
 
-## Arquivos gerados automaticamente no primeiro open
+## Arquivos gerados automaticamente na primeira abertura
 
-No primeiro open, o Unity pode gerar arquivos adicionais em `ProjectSettings/`, como:
+Na primeira abertura, o Unity pode gerar arquivos adicionais em `ProjectSettings/`, como:
 
 - `ProjectSettings/ProjectSettings.asset`
 - `ProjectSettings/TagManager.asset`
